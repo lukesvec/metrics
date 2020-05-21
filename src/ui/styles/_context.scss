@@ -1,0 +1,78 @@
+.context {
+
+	position: absolute;
+	display: grid;
+	top: 0;
+	left: 0;
+	padding: $gutter/2 0;
+	min-width: 170px;
+	background: rgba($context, .98);
+	border-radius: $radius;
+	transform: translate(var(--x), var(--y));
+	z-index: 3;
+	opacity: 0;
+	pointer-events: none;
+
+	@supports (backdrop-filter: blur(10px)) {
+		background: $context;
+		backdrop-filter: blur(10px);
+	}
+
+	@media (max-width: 800px) {
+		font-size: .9em;
+	}
+
+	&--floating {
+		position: fixed;
+		min-width: 210px;
+		border-radius: 12px;
+	}
+
+	&.visible {
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	&__button {
+		padding: $gutter/3 $gutter*1.2;
+		padding-right: $gutter*3;
+		color: currentColor;
+		text-align: left;
+		transition: color .3s ease, background .2s ease;
+		line-height: 1.4;
+		outline: none;
+
+		&.active {
+			color: $white;
+		}
+
+		&:focus,
+		&:hover {
+			background: $dimmed;
+		}
+	}
+
+	&--floating &__button {
+		margin: 0 $gutter/2;
+		padding: $gutter/2 $gutter/1.6;
+		padding-right: $gutter*3;
+		color: $white;
+		border-radius: $radius;
+
+		&.active {
+			color: $primary;
+		}
+	}
+
+	&__description {
+		font-size: .86em;
+		color: $light;
+	}
+
+	&__separator {
+		height: 1px;
+		background: $dimmed;
+		margin: $gutter/2 0;
+	}
+
+}

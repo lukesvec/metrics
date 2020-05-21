@@ -1,0 +1,15 @@
+.content {
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: $gutter;
+	margin: 0 auto;
+	padding: 6vh $gutter;
+	width: 100%;
+	max-width: $maxWidth;
+
+	@media (max-width: 800px) {
+		grid-template-columns: 1fr;
+	}
+
+}
